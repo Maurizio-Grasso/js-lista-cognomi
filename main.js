@@ -1,14 +1,24 @@
-var listaCognomi = ["Bianchi", "Rossi", "Duzioni", "Balsano", "Verdi"];
+var listaCognomiOriginale = ["Bianchi", "Rossi", "Duzioni", "Balsano", "Verdi"];
+
+
+// Preservo la lista dei cognomi originale lavorando su una copia
+var listaCognomiNuova = listaCognomiOriginale;  
 
 var cognomeUtente = prompt("Inserisci cognome");
 
-listaCognomi.push(cognomeUtente);
+listaCognomiNuova.push(cognomeUtente);
 
-listaCognomi.sort();
-console.log(listaCognomi);
-for ( i = 0; i < listaCognomi.length; i++ ) {
+for ( i = 0; i < listaCognomiNuova.length; i++ ) {
+    // questo ciclo for serve soltanto a rimuovere le lettere maiuscole dai cognomi
+    // altrimenti non funzionerebbe il sort dell'array
+    listaCognomiNuova[i] = listaCognomiNuova[i].toLowerCase();
+}
 
-    if ( cognomeUtente == listaCognomi[i] ) {
+listaCognomiNuova.sort();
+
+for ( i = 0; i < listaCognomiNuova.length; i++ ) {
+
+    if ( cognomeUtente == listaCognomiNuova[i] ) {
         console.log(cognomeUtente+" trovato in posizione "+(i+1));
     }
 }
