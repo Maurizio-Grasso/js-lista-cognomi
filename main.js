@@ -4,7 +4,11 @@ var listaCognomiOriginale = ["Bianchi", "Rossi", "Duzioni", "Balsano", "Verdi"];
 // Preservo la lista dei cognomi originale lavorando su una copia
 var listaCognomiNuova = listaCognomiOriginale;  
 
-var cognomeUtente = prompt("Inserisci cognome");
+var cognomeUtente = prompt("Inserisci il tuo cognome");
+
+while (cognomeUtente == "") {
+    cognomeUtente = prompt("Non hai inserito nulla. Per favore, riprova.");
+}
 
 listaCognomiNuova.push(cognomeUtente);
 
@@ -27,6 +31,5 @@ for ( i = 0; i < listaCognomiNuova.length; i++ ) {
         document.getElementById("list-item-"+(i+1)).style = "color:red;"    // e colora il rispettivo <li> di rosso nell'HTML
     
     }
-
 
 }
